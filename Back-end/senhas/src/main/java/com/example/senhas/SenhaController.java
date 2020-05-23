@@ -54,7 +54,7 @@ class SenhaController {
         return repository.findById(id)
                 .orElseThrow(() -> new SenhaNotFoundException(id));
     }
-
+    //Delete item
     @DeleteMapping("/senhas/{id}")
     void deleteSenha(@PathVariable Long id) {
         repository.deleteById(id);
