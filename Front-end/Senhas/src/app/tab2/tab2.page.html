@@ -2,6 +2,11 @@
   <ion-img src="../assets/senhaimgnew.png" class = "senha"></ion-img>
   <div>
       <!--<ion-img src="../assets/senhaimgnew.png"></ion-img>-->
-      <div class="centered">Centered</div>
+      <div class="centered">
+        <ion-label>{{idLabel}}</ion-label><br/>
+        <ion-label>{{codigoLabel}}</ion-label><br/>
+        <ion-label>{{atualLabel}}</ion-label>
+        <ion-button class = "botao" (click) = "show_ticket()"></ion-button>
+      </div>
   </div>
 </ion-content>
