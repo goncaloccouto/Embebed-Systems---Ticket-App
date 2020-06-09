@@ -16,10 +16,11 @@ export class Tab2Page {
   constructor(private service: IonicRestService) {}
 
   public show_ticket(){
-    let resposta = this.service.getValuesSenha();
-    this.idLabel = "" + resposta.id;
-    this.codigoLabel = "" + resposta.codigo;
-    this.atualLabel = "" + resposta.senhaAtual;
+    let senha = this.service.getValuesSenha();
+    console.log(senha);
+    this.idLabel = "" + senha.id;
+    this.codigoLabel = "" + senha.codigo;
+    this.atualLabel = "" + senha.senhaAtual;
   }
   
 }

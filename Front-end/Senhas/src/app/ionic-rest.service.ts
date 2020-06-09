@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, of, observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import {HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,21 +18,7 @@ export class IonicRestService {
   constructor(private http: HttpClient) { }
 
   getSenha(): Observable<any> {
-    this.response = this.http.get('http://localhost:8080/pedirsenha');
-    return this.response;
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      console.log(`${operation} failed: ${error.message}`);
-      return of(result as T);
-    };
-  }
-
-  getValuesSenha(){
-    console.log(this.response);
-    this.response.subscribe(
+    this.response = this.http.get('http://192.168.1.143:8080/pedirsenha').subscribe(
       (response)=>{
         this.response2 = response;
         console.log(this.response2);
@@ -41,7 +27,12 @@ export class IonicRestService {
         console.log(error.status);
         console.error("erro!");
       }
-    );
+    );;
+    return this.response;
+  }
+
+  getValuesSenha(){
     return this.response2;
   }
+
 }

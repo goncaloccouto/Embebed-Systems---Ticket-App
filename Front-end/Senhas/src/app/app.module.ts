@@ -10,7 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { IonicRestService } from './ionic-rest.service'
+import { IonicRestService } from './ionic-rest.service';
+
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { IonicRestService } from './ionic-rest.service'
   providers: [
     StatusBar,
     SplashScreen,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     IonicRestService
   ],

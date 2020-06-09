@@ -26,7 +26,7 @@ class SenhaController {
     Senha novaSenha() {
         Senha novasenha = new Senha();
         if(repository.findAll().size() == 0) {
-            System.out.println(novasenha);
+            //System.out.println(novasenha);
             return repository.save(novasenha);
         }
         Long temp = repository.findAll().get(0).getSenhaAtual();
@@ -39,8 +39,8 @@ class SenhaController {
         List<Senha> lista = repository.findAll();
         Long temp = lista.get(0).getSenhaAtual();
         for(Senha senha: lista){
-            System.out.println(temp);
-            System.out.println(temp+1L);
+            //System.out.println(temp);
+            //System.out.println(temp+1L);
             senha.setSenhaAtual(temp+1L);
             repository.save(senha);
         }

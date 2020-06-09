@@ -1,17 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Ionic QR/ Barcode Scanner
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1>Click Button To Scan</h1>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button color="primary" (click)="scanCode()">
+    Scan Code
+  </ion-button>
+
+  <div *ngIf="scannedData">
+    <p>
+      Scanned Code Text : <b>{{ scannedData["text"] }}</b>
+    </p>
+    <p>
+      Scanned Code Format : <b>{{ scannedData["format"] }}</b>
+    </p>
+  </div>
+
+  <h1>Enter Value to Create QR code</h1>
+  <ion-input placeholder="Enter Input" [(ngModel)]="encodedData"></ion-input>
+
+  <ion-button color="success" (click)="encodedText()">
+    Create QR
+  </ion-button>
 </ion-content>

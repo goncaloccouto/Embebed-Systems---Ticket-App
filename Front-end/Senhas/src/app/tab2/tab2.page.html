@@ -3,10 +3,12 @@
   <div>
       <!--<ion-img src="../assets/senhaimgnew.png"></ion-img>-->
       <div class="centered">
-        <ion-label>{{idLabel}}</ion-label><br/>
-        <ion-label>{{codigoLabel}}</ion-label><br/>
-        <ion-label>{{atualLabel}}</ion-label>
-        <ion-button class = "botao" (click) = "show_ticket()"></ion-button>
+        <ion-label>ID: {{idLabel}}</ion-label><br/>
+        <ion-label>Codigo: {{codigoLabel}}</ion-label><br/>
+        <ion-label>Senha Atual: {{atualLabel}}</ion-label>
+      </div>
+      <div class="button">
+        <ion-button class = "botao" (click) = "show_ticket()">Mostrar Senha</ion-button>
       </div>
   </div>
 </ion-content>
