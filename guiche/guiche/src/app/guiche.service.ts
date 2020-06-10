@@ -10,10 +10,12 @@ export class GuicheService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
+  senhaRecebida;
+
   constructor(private http: HttpClient) { }
 
   avancarSenha() {
-    this.http.get('http://localhost:8080/avancarsenha').subscribe(
+    this.http.get('http://192.168.1.143:8080/avancarsenha').subscribe(
       (response)=>{
         //response.json();
         console.log("boas");
@@ -23,5 +25,18 @@ export class GuicheService {
         console.error("erro!");
       }
     );
+  }
+
+  validarSenha(idSenha){
+    let resposta = this.http.get('http://192.168.1.143:8080/senhas/' + idSenha).subscribe(
+      (response)=>{
+        console.log(response);
+        this.senhaRecebida = response;
+      },
+      (error)=>{
+        console.error("erro!");
+      }
+    );
+    return this.senhaRecebida;
   }
 }

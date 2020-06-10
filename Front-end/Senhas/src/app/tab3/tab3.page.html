@@ -1,31 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Ionic QR/ Barcode Scanner
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
-  <h1>Click Button To Scan</h1>
-
-  <ion-button color="primary" (click)="scanCode()">
-    Scan Code
-  </ion-button>
-
-  <div *ngIf="scannedData">
-    <p>
-      Scanned Code Text : <b>{{ scannedData["text"] }}</b>
-    </p>
-    <p>
-      Scanned Code Format : <b>{{ scannedData["format"] }}</b>
-    </p>
+<br/>
+<br/>
+<br/>
+<br/>
+  Para validar a sua senha mostre o QR Code gerado
+  <div class="centered">
+    <ion-button color="success" (click)="encodedText()">
+      Gerar QR
+    </ion-button>
   </div>
-
-  <h1>Enter Value to Create QR code</h1>
-  <ion-input placeholder="Enter Input" [(ngModel)]="encodedData"></ion-input>
-
-  <ion-button color="success" (click)="encodedText()">
-    Create QR
-  </ion-button>
 </ion-content>

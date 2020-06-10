@@ -14,6 +14,8 @@ export class IonicRestService {
 
   response;
   response2;
+  senha;
+  
 
   constructor(private http: HttpClient) { }
 
@@ -27,12 +29,23 @@ export class IonicRestService {
         console.log(error.status);
         console.error("erro!");
       }
-    );;
+    );
     return this.response;
   }
 
   getValuesSenha(){
-    return this.response2;
+    let idSenha = this.response2.id;
+    let resposta = this.http.get('http://192.168.1.143:8080/senhas/' + idSenha).subscribe(
+      (response)=>{
+        console.log(response);
+        this.senha = response;
+      },
+      (error)=>{
+        console.error("erro!");
+      }
+    );
+    console.log(this.senha);
+    return this.senha;
   }
 
 }

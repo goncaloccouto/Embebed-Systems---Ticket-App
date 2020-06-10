@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicRestService } from '../ionic-rest.service'
+import { IonicRestService } from '../ionic-rest.service';
+import { interval, Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,11 +10,18 @@ import { IonicRestService } from '../ionic-rest.service'
 })
 export class Tab2Page {
 
+  source = interval(5000);
+  subscription: Subscription;
+  
+
+  senha;
   idLabel: String = "";
   codigoLabel: String = "";
   atualLabel: String = "";
 
-  constructor(private service: IonicRestService) {}
+  constructor(private service: IonicRestService) {
+    this.subscription = this.source.subscribe(val => this.show_ticket());
+  }
 
   public show_ticket(){
     let senha = this.service.getValuesSenha();

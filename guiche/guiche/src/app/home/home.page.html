@@ -1,4 +1,12 @@
 <ion-content [fullscreen]="true">
-  <ion-label>Pressione o botão para avançar a senha.</ion-label>
-  <ion-button (click) = "avancarSenha()"></ion-button>
+  <br/><br/>
+  <center><h1>Guiche Senhas</h1></center><br/><br/><br/>
+  <div class="centered">
+    <center><ion-button (click) = "avancarSenha()">Proxima Senha</ion-button></center><br/><br/><br/>
+    <center><ion-button (click) = "scanCode()">Validar Senha</ion-button></center>
+  </div>
+  <div class="validacao">
+    <center><ion-label>Resultado validacao:</ion-label></center><br/><br/><br/><br/><br/>
+    <div id="resultado" class="square"></div>
+  </div>
 </ion-content>

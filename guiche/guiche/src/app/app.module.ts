@@ -12,6 +12,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { GuicheService } from './guiche.service';
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,6 +22,7 @@ import { GuicheService } from './guiche.service';
   providers: [
     StatusBar,
     SplashScreen,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GuicheService
   ],

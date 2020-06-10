@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IonicRestService } from '../ionic-rest.service';
 import { BarcodeScannerOptions, BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
@@ -13,28 +14,17 @@ export class Tab3Page {
   barcodeScannerOptions: BarcodeScannerOptions;
 
 
-  constructor(private barcodeScanner: BarcodeScanner) {
-    this.encodeData = "http://localhost/pedirsenha";
+  constructor(private barcodeScanner: BarcodeScanner, private service: IonicRestService) {
+  }
+
+  encodedText() {
+    let senha = this.service.getValuesSenha();
+    this.encodeData = senha;
     //Options
     this.barcodeScannerOptions = {
       showTorchButton: true,
       showFlipCameraButton: true
     };
-  }
-
-  scanCode() {
-    this.barcodeScanner
-      .scan()
-      .then(barcodeData => {
-        alert("Barcode data " + JSON.stringify(barcodeData));
-        this.scannedData = barcodeData;
-      })
-      .catch(err => {
-        console.log("Error", err);
-      });
-  }
-
-  encodedText() {
     this.barcodeScanner
       .encode(this.barcodeScanner.Encode.TEXT_TYPE, this.encodeData)
       .then(

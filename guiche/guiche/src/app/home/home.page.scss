@@ -1,27 +1,23 @@
-#container {
-  text-align: center;
-
+.centered {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.validacao {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.square {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+  background-color: rgb(216, 216, 216);
 }
