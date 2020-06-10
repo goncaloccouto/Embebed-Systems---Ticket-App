@@ -24,19 +24,29 @@ export class HomePage {
     this.barcodeScanner
       .scan()
       .then(barcodeData => {
-        alert("Barcode data " + JSON.stringify(barcodeData));
-        this.scannedData = barcodeData;
+        localStorage.setItem('senha', JSON.stringify(barcodeData));
+        this.scannedData = localStorage.getItem('senha');
+        this.idSenha = this.scannedData.id;
+        let resposta = this.service.validarSenha(this.idSenha);
+        alert(resposta);
+        if(resposta.id.equals(this.scannedData.id) && resposta.codigo.equals(this.scannedData.codigo))
+          document.getElementById("resultado").style.backgroundColor = "green";
+        else 
+          document.getElementById("resultado").style.backgroundColor = "red";
       })
       .catch(err => {
         console.log("Error", err);
       });
-    console.log(this.scannedData);
-    console.log(this.idSenha);
+    /*this.scannedData = localStorage.getItem('senha');
+    this.idSenha = this.scannedData.id;
+    alert(this.scannedData);
+    alert(this.idSenha);
     let resposta = this.service.validarSenha(this.idSenha);
-    if(resposta.id == this.scannedData.id && resposta.codigo == this.scannedData.codigo)
+    alert(resposta);
+    if(resposta.id.equals(this.scannedData.id) && resposta.codigo.equals(this.scannedData.codigo))
       document.getElementById("resultado").style.backgroundColor = "green";
     else 
-      document.getElementById("resultado").style.backgroundColor = "red";
+      document.getElementById("resultado").style.backgroundColor = "red";*/
   }
 
 }

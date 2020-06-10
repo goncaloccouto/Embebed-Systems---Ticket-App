@@ -30,13 +30,14 @@ export class GuicheService {
   validarSenha(idSenha){
     let resposta = this.http.get('http://192.168.1.143:8080/senhas/' + idSenha).subscribe(
       (response)=>{
-        console.log(response);
+        alert(response);
         this.senhaRecebida = response;
       },
       (error)=>{
         console.error("erro!");
       }
     );
+    alert(this.senhaRecebida);
     return this.senhaRecebida;
   }
 }
