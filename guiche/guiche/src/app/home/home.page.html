@@ -1,8 +1,10 @@
 <ion-content [fullscreen]="true">
   <br/><br/>
-  <center><h1>Guiche Senhas</h1></center><br/><br/><br/>
+  <center><h1>Guiche Senhas</h1></center><br/>
+  <center><ion-label>Senha Atual:</ion-label></center><br/>
+  <center><ion-label>{{senhaAtual}}</ion-label></center><br/><br/>
   <div class="centered">
-    <center><ion-button (click) = "avancarSenha()">Proxima Senha</ion-button></center><br/><br/><br/>
+    <center><ion-button (click) = "avancarSenha()">Proxima Senha</ion-button></center><br/><br/>
     <center><ion-button (click) = "scanCode()">Validar Senha</ion-button></center>
   </div>
   <div class="validacao">

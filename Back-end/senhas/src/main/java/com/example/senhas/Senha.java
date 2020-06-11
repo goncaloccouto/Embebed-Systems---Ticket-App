@@ -18,7 +18,7 @@ class Senha {
     private Long senhaAtual;
 
     Senha() {
-        this.codigo = Math.abs(new Random().nextLong());
+        this.codigo = 100000 + (long) (Math.random() * (999999 - 100000));
         this.senhaAtual = 0L;
     }
 

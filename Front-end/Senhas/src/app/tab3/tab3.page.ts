@@ -19,7 +19,7 @@ export class Tab3Page {
 
   encodedText() {
     let senha = this.service.getValuesSenha();
-    this.encodeData = senha;
+    this.encodeData = JSON.stringify(senha);
     //Options
     this.barcodeScannerOptions = {
       showTorchButton: true,

@@ -35,7 +35,7 @@ class SenhaController {
     }
 
     @GetMapping("/avancarsenha")
-    void avancarSenha(){
+    Long avancarSenha(){
         List<Senha> lista = repository.findAll();
         Long temp = lista.get(0).getSenhaAtual();
         for(Senha senha: lista){
@@ -44,6 +44,7 @@ class SenhaController {
             senha.setSenhaAtual(temp+1L);
             repository.save(senha);
         }
+        return temp+1L;
     }
 
     // Single item
@@ -58,5 +59,10 @@ class SenhaController {
     @DeleteMapping("/senhas/{id}")
     void deleteSenha(@PathVariable Long id) {
         repository.deleteById(id);
+    }
+
+    @GetMapping("/apagartudo")
+    void allDelete(){
+        repository.deleteAll();
     }
 }

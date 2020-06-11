@@ -10,34 +10,44 @@ export class GuicheService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
-  senhaRecebida;
+  senhaRecebida = "";
+  atual = "";
 
   constructor(private http: HttpClient) { }
 
   avancarSenha() {
     this.http.get('http://192.168.1.143:8080/avancarsenha').subscribe(
       (response)=>{
+        //console.log("response " + response);
+        //console.log(Number(response).toString());
+        localStorage.setItem('atual',Number(response).toString());
         //response.json();
-        console.log("boas");
+        //console.log("boas");
       },
       (error)=>{
-        console.log(error.status);
+        //console.log(error.status);
         console.error("erro!");
       }
     );
+    //console.log(localStorage.getItem('atual'));
+    this.atual = localStorage.getItem('atual');
+    //console.log("atual " + this.atual);
+    return this.atual;
   }
 
   validarSenha(idSenha){
+    //alert("idSenha validarSenha " + idSenha);
     let resposta = this.http.get('http://192.168.1.143:8080/senhas/' + idSenha).subscribe(
       (response)=>{
-        alert(response);
-        this.senhaRecebida = response;
+        //alert("response val " + response);
+        localStorage.setItem('objeto',JSON.stringify(response));
       },
       (error)=>{
         console.error("erro!");
       }
     );
-    alert(this.senhaRecebida);
+    this.senhaRecebida = localStorage.getItem('objeto');
+    //alert("this.senhaRecebida " + this.senhaRecebida);
     return this.senhaRecebida;
   }
 }
