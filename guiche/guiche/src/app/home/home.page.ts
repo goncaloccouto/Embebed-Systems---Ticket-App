@@ -26,7 +26,7 @@ export class HomePage {
 
   avancarSenha(){
     //console.log(this.service.avancarSenha());
-    this.senhaAtual = "" + this.service.avancarSenha();
+    this.senhaAtual = "" + (parseInt(this.service.avancarSenha())+1);
   }
 
   scanCode() {

@@ -31,6 +31,7 @@ export class GuicheService {
     );
     //console.log(localStorage.getItem('atual'));
     this.atual = localStorage.getItem('atual');
+    localStorage.removeItem('atual');
     //console.log("atual " + this.atual);
     return this.atual;
   }
@@ -48,6 +49,7 @@ export class GuicheService {
     );
     this.senhaRecebida = localStorage.getItem('objeto');
     //alert("this.senhaRecebida " + this.senhaRecebida);
+    localStorage.removeItem('objeto');
     return this.senhaRecebida;
   }
 }
